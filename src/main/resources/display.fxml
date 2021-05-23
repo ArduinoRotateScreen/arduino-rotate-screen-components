@@ -10,9 +10,7 @@
       maxHeight="-Infinity"
       maxWidth="-Infinity"
       minHeight="-Infinity"
-      minWidth="-Infinity"
-      prefHeight="108.0"
-      prefWidth="192.0">
+      minWidth="-Infinity">
     <Rectangle fx:id="display"
                arcHeight="5.0"
                arcWidth="5.0"
