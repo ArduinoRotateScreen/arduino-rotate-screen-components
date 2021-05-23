@@ -30,5 +30,4 @@ public class DisplayController implements Initializable {
         System.out.println(identifier.getText());
     }
 
-
 }
