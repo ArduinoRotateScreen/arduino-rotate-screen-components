@@ -27,7 +27,11 @@ public class DisplayController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(identifier.getText());
+        setIdentifierAtCenter();
+    }
+
+    private void setIdentifierAtCenter() {
+        identifier.layoutXProperty().bind(display.widthProperty().subtract(identifier.widthProperty()).divide(2));
     }
 
 }
