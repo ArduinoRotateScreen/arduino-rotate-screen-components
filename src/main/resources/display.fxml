@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<Pane fx:id="root"
+      xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1"
+      maxHeight="-Infinity"
+      maxWidth="-Infinity"
+      minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="108.0"
+      prefWidth="192.0">
+    <Rectangle fx:id="display"
+               arcHeight="5.0"
+               arcWidth="5.0"
+               fill="DODGERBLUE"
+               height="108.0"
+               stroke="BLACK"
+               strokeType="INSIDE"
+               width="192.0"/>
+    <Rectangle fx:id="mainDisplay"
+               arcHeight="5.0"
+               arcWidth="5.0"
+               fill="WHITE"
+               height="10.0"
+               stroke="BLACK"
+               strokeType="INSIDE"
+               width="192.0"/>
+    <Label fx:id="identifier"
+           layoutX="84.0"
+           layoutY="24.0"
+           text="1"
+           textFill="WHITE">
+        <font>
+            <Font size="50.0"/>
+        </font>
+    </Label>
+</Pane>
