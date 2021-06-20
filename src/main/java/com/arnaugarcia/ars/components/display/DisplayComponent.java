@@ -46,6 +46,7 @@ public class DisplayComponent extends Pane {
             controller.getMainDisplay().setWidth(displayWidth);
 
             controller.getIdentifier().setText(this.identifier);
+
             controller.setMyEventHandler(onClickAction);
         } catch (IOException e) {
             e.printStackTrace();
