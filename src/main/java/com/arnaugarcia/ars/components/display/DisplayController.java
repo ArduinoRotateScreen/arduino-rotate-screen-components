@@ -1,6 +1,5 @@
 package com.arnaugarcia.ars.components.display;
 
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +17,7 @@ import java.util.ResourceBundle;
 public class DisplayController implements Initializable {
 
     @Setter
-    private EventHandler<MouseEvent> myEventHandler;
+    private EventHandler<MouseEvent> onClickHandler;
 
     @FXML
     private Pane root;
@@ -46,8 +45,8 @@ public class DisplayController implements Initializable {
 
     @FXML
     public void click(MouseEvent event) {
-        if (myEventHandler != null) {
-            myEventHandler.handle(event);
+        if (onClickHandler != null) {
+            onClickHandler.handle(event);
         }
     }
 }

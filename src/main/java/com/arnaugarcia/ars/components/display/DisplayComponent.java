@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,24 +16,27 @@ import java.io.IOException;
 public class DisplayComponent extends Pane {
 
     @Setter
-    private EventHandler<MouseEvent> myEventHandler;
+    private EventHandler<MouseEvent> onClickHandler;
     private final DisplayController controller;
     private final String identifier;
-    private final Integer displayHeight;
-    private final Integer displayWidth;
-    private final Boolean mainDisplay;
+    private final int displayHeight;
+    private final int displayWidth;
+    private final boolean mainDisplay;
+    private final boolean selected;
 
     @Builder
     public DisplayComponent(String identifier,
-                            Integer displayHeight,
-                            Integer displayWidth,
-                            Boolean mainDisplay,
+                            int displayHeight,
+                            int displayWidth,
+                            boolean mainDisplay,
+                            boolean selected,
                             EventHandler<MouseEvent> onClickAction) {
         super();
         this.identifier = identifier;
         this.displayHeight = displayHeight;
         this.displayWidth = displayWidth;
         this.mainDisplay = mainDisplay;
+        this.selected = selected;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/display.fxml"));
         controller = new DisplayController();
         loader.setController(controller);
@@ -47,7 +51,11 @@ public class DisplayComponent extends Pane {
 
             controller.getIdentifier().setText(this.identifier);
 
-            controller.setMyEventHandler(onClickAction);
+            if (selected) {
+                controller.getDisplay().setFill(Color.RED);
+            }
+
+            controller.setOnClickHandler(onClickAction);
         } catch (IOException e) {
             e.printStackTrace();
         }
