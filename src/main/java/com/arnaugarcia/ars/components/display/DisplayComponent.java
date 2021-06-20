@@ -1,16 +1,21 @@
 package com.arnaugarcia.ars.components.display;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.IOException;
 
 @Getter
 public class DisplayComponent extends Pane {
 
+    @Setter
+    private EventHandler<MouseEvent> myEventHandler;
     private final DisplayController controller;
     private final String identifier;
     private final Integer displayHeight;
@@ -18,7 +23,11 @@ public class DisplayComponent extends Pane {
     private final Boolean mainDisplay;
 
     @Builder
-    public DisplayComponent(String identifier, Integer displayHeight, Integer displayWidth, Boolean mainDisplay) {
+    public DisplayComponent(String identifier,
+                            Integer displayHeight,
+                            Integer displayWidth,
+                            Boolean mainDisplay,
+                            EventHandler<MouseEvent> onClickAction) {
         super();
         this.identifier = identifier;
         this.displayHeight = displayHeight;
@@ -37,6 +46,7 @@ public class DisplayComponent extends Pane {
             controller.getMainDisplay().setWidth(displayWidth);
 
             controller.getIdentifier().setText(this.identifier);
+            controller.setMyEventHandler(onClickAction);
         } catch (IOException e) {
             e.printStackTrace();
         }

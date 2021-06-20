@@ -1,17 +1,23 @@
 package com.arnaugarcia.ars.components.display;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 @Getter
 public class DisplayController implements Initializable {
+
+    @Setter
+    private EventHandler<MouseEvent> myEventHandler;
 
     @FXML
     private Pane root;
@@ -31,7 +37,16 @@ public class DisplayController implements Initializable {
     }
 
     private void setIdentifierAtCenter() {
-        identifier.layoutXProperty().bind(display.widthProperty().subtract(identifier.widthProperty()).divide(2));
+        identifier.layoutXProperty()
+                .bind(display.widthProperty()
+                .subtract(identifier.widthProperty())
+                .divide(2));
     }
 
+    @FXML
+    public void click(MouseEvent event) {
+        if (myEventHandler != null) {
+            myEventHandler.handle(event);
+        }
+    }
 }
