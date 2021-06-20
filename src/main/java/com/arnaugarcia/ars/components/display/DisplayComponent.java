@@ -12,6 +12,8 @@ import lombok.Setter;
 
 import java.io.IOException;
 
+import static javafx.scene.paint.Color.RED;
+
 @Getter
 public class DisplayComponent extends Pane {
 
@@ -52,7 +54,7 @@ public class DisplayComponent extends Pane {
             controller.getIdentifier().setText(this.identifier);
 
             if (selected) {
-                controller.getDisplay().setFill(Color.RED);
+                controller.getDisplay().setFill(RED);
             }
 
             controller.setOnClickHandler(onClickAction);
